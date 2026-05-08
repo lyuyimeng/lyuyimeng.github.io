@@ -127,10 +127,56 @@
     color: inherit;
   }
 
+
+  /* Mobile Coming Soon */
+.mobile-coming-soon {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 16px;
+  color: rgb(206, 206, 206);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body > *:not(.mobile-coming-soon) {
+    display: none;
+  }
+  .mobile-coming-soon {
+    display: flex;
+  }
+}
+
   </style>
 </head>
 
 <body>
+
+<div class="mobile-coming-soon">
+  <p>
+    🌺
+    <br>
+    Thank you for visiting {lyuyimeng.github.io}
+    <br>
+    <br>
+    🛠️
+    <br>
+    This website is
+    temporarily landscape view ONLY
+    <br>
+    Mobile version coming soon!
+    <br>
+
+  </p>
+</div>
+
 
 <div class="grid">
 
