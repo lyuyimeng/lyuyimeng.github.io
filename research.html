@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YL_research</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: rgb(26, 26, 26);
+  }
+
+  /* ===== GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
+    grid-auto-rows: 1fr;  /* 暂时的解法 temporary solution 不适合research变多之后！！（这个code让默认的8*8变成8*9） */
+  }
+
+  /* ===== CELL ===== */
+  .cell {
+    border: 0px;
+  }
+
+  .content {
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+    .research{
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 18px;
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+  .content-nameEN {
+    font-family:'Inter', sans-serif;
+    padding: 10px;
+    font-size: 22px;
+    padding-bottom: 0;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1%;
+  }
+
+  .content-nameCN {
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 2px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+    .content-note {
+    opacity: 50%;
+    font-size: 16px;
+  }
+
+    .content-NOTE {
+    opacity: 50%;
+    font-size: 16px;
+  }
+
+
+
+  /* ===== LEFT STRUCTURE ===== */
+
+  .merge-a {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .merge-b {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+  }
+
+  /* 第二列 navigation */
+  .merge-2a { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .merge-2b { grid-column: 3 / 4; grid-row: 1 / 2; }
+  .merge-2c { grid-column: 4 / 5; grid-row: 1 / 2; }
+  .merge-2d { grid-column: 5 / 6; grid-row: 1 / 2; }
+
+  .merge-L1{
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  }
+
+  .merge-M1{
+  grid-column: 3 / 5;
+  grid-row: 2 / 4;
+  }
+
+  .merge-M2{
+  grid-column: 3 / 5;
+  grid-row: 4 / 6;
+  }
+
+  .merge-M3{
+  grid-column: 3 / 5;
+  grid-row: 6 / 8;
+  }
+
+  .merge-M4{
+  grid-column: 3 / 5;
+  grid-row: 8 / 10;
+  }
+
+  .merge-R1{
+  grid-column: 5 / 8; 
+  grid-row: 2 / 4;
+
+  overflow-y: auto;           /* 允许内部滚动 */
+  overscroll-behavior: none;  /* 禁止橡皮筋 */
+  }
+
+    .merge-R2{
+    grid-column: 5 / 8; 
+    grid-row: 4 / 6;
+
+    overflow-y: auto;           /* 允许内部滚动 */
+    overscroll-behavior: none;  /* 禁止橡皮筋 */
+    }
+
+  .merge-R3{
+  grid-column: 5 / 8; 
+  grid-row: 6 / 8;
+
+  overflow-y: auto;           /* 允许内部滚动 */
+  overscroll-behavior: none;  /* 禁止橡皮筋 */
+  }
+
+  .merge-R4{
+  grid-column: 5 / 8; 
+  grid-row: 8 / 10;
+
+  overflow-y: auto;           /* 允许内部滚动 */
+  overscroll-behavior: none;  /* 禁止橡皮筋 */
+  }
+
+  /* ===== 关闭弹性滚动 ===== */
+  html, body {
+    overscroll-behavior: none;
+    overflow: hidden;
+  }
+
+  </style>
+</head>
+
+<body>
+
+<div class="grid">
+
+  <!-- 左上名字 -->
+  <div class="merge-a">
+    <a href="index.html" style="text-decoration:none;color:inherit;">
+      <div class="content-nameEN">lyu,<br>yimeng</div>
+      <div class="content-nameCN">吕奕蒙</div>
+    </a>
+  </div>
+
+  <!-- nav -->
+  <div class="merge-2a">
+    <div class="content">
+        <a href="about.html" style="text-decoration:none;color:inherit;">
+        About
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2b">
+    <div class="content">
+        <a href="gallery.html" style="text-decoration:none;color:inherit;">
+        Gallery
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2c">
+    <div class="content">
+        <a href="research.html" style="text-decoration:none;color:inherit;">
+        [Research]
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2d">
+    <div class="content">
+        <a href="contact.html" style="text-decoration:none;color:inherit;">
+        Contact
+        </a>
+    </div>
+  </div>
+
+
+  <!-- Selected Projects: -->
+  <div class = "merge-L1">
+    <div class = "content">
+    Selected Projects:
+    </div>
+  </div>
+
+
+   <!-- Project 1 -->
+
+  <div class = "merge-M1">
+    <div class = "content">
+    Way of Seeing Medicine: May H. Lesser and the Modern American Medical Center
+
+        <div class = "content-NOTE">
+        Developed as part of <em>Survey of the History of Medicine 4: Biomedicine and its Consequences</em> instructed by Dr. Comfort, Nathaniel
+        </div>
+
+    </div>
+  </div>
+
+
+  <div class = "merge-R1">
+    <div class = "content">
+        <p>
+        The project uses an imagined curatorial exhibition as its primary method to examine the development of twentieth-century American medical centers through visual, historical, and sociological perspectives.<br>
+        </p>
+
+        <details>
+        <summary>Details</summary>
+        <p>
+            This project examines how medicine is made visible and organized through the work of artist May H. Lesser, who documented everyday life in an American academic medical center between 1966 and 1971. Rather than treating her drawings as isolated visual records, the project repositions them within an imagined curatorial exhibition, using spatial arrangement as a form of analysis.
+        </p>
+        <br>
+        <p>
+            Bringing together visual studies, the history of medicine, and sociology, the research situates Lesser’s work within the emergence of the modern medical center as a highly structured institutional space shaped by education, research, and clinical practice. Her drawings foreground routine practices, coordinated labor, and distributed roles, offering an alternative to dominant representations of medicine centered on heroic physicians and moments of cure.
+        </p>
+        <br>
+        <p>
+            By reconstructing these images within an exhibition format, the project explores how medical space structures perception, social roles, and experiences of care. In doing so, it considers how visual practices can reveal the underlying organization of medical systems and the production of medical authority.
+        </p>
+        </details>
+
+         <div class="content-note">
+         <em>Research poster presented at the HBS Research and Practice Symposium 2026, Johns Hopkins University</em>
+         </div>     
+    </div>
+  </div>
+
+
+
+     <!-- Project 2 -->
+
+  <div class = "merge-M2">
+    <div class = "content">
+    Intersectional Mental Health Inequalities among Adolescents in China
+
+        <div class = "content-NOTE">
+        PI: Dr. Su, Yingying
+        </div>
+
+    </div>
+  </div>
+
+
+  <div class = "merge-R2">
+    <div class = "content">
+        <p>
+        The project applies latent profile analysis (LPA) and Multilevel Analysis of Individual Heterogeneity and Discriminatory Accuracy (MAIHDA) to examine how intersecting social, demographic, and experiential factors shape mental health outcomes among adolescents in China.
+        </p>
+
+        <details>
+        <summary>Details</summary>
+        <p>
+        This project analyzes adolescent mental health using a large-scale school-based dataset collected in China (n = 16,080). Focusing on depression, anxiety, and PTSD, the study investigates how sociodemographic characteristics, socioeconomic status, and experiences of childhood sexual abuse (CSA) and online child sexual exploitation (OCS) jointly contribute to mental health risk.
+        </p>
+        <br>
+        <p>
+        Latent Profile Analysis (LPA) is used to identify distinct exposure patterns to CSA and OCS, which are then incorporated into an intersectional multilevel framework (MAIHDA). By constructing intersectional strata based on gender, gender identity, age group, socioeconomic status, and abuse experience, the analysis captures both between-group inequalities and within-group heterogeneity.
+        </p>
+        <br>
+        <p>
+        The project highlights how multiple dimensions of vulnerability accumulate and interact, contributing to uneven distributions of mental health outcomes. It emphasizes the importance of intersectional approaches in understanding adolescent mental health and informing equity-oriented interventions.
+        </p>
+        </details>
+
+         <div class="content-note">
+         <em>Manuscript in preparation for peer-reviewed international journal</em>
+         </div>     
+    </div>
+  </div>
+
+
+       <!-- Project 3 -->
+
+  <div class = "merge-M3">
+    <div class = "content">
+    Digital Health Interventions for Marginalized Populations: A Systematic Review and Meta-analysis
+
+        <div class = "content-NOTE">
+        PI: Dr. Su, Yingying
+        </div>
+
+    </div>
+  </div>
+
+
+  <div class = "merge-R3">
+    <div class = "content">
+        <p>
+        This project evaluates digital health interventions across marginalized populations in global literature.
+        </p>
+
+        <details>
+        <summary>Details</summary>
+        <!-- <p>
+        Contributed to a registered systematic review and meta-analysis examining digital health interventions among low-income communities, rural populations, people with disabilities, and LGBTQ+ groups.
+        </p> -->
+        <p>
+        The project maps how digital tools are implemented across contexts and assesses their potential to reduce, or produce, health inequalities in vulnerable or marginlized populations. 
+        Responsible for literature screening and study selection, reviewing 5,466 records across title/abstract and full-text stages using EndNote.
+        </p>
+
+        </details>
+         <div class="content-note">
+         <em>Manuscript in preparation for peer-reviewed international journal</em>
+         </div>
+
+    </div>
+  </div>
+
+
+         <!-- Project 4 -->
+
+  <div class = "merge-M4">
+    <div class = "content">
+    From Visual Culture to Environmental Health: Mining Histories in Taiyuan
+
+        <div class = "content-NOTE">
+        Mentor: Prof. Smoot, Mike
+        </div>
+
+    </div>
+  </div>
+
+
+  <div class = "merge-R4">
+    <div class = "content">
+        <p>
+        The project examines the relationship between industrial development, visual culture, and environmental health in Taiyuan, China, 
+        using art practice as a method to understand how history of mining are perceived and represented.
+        </p>
+
+        <details>
+        <summary>Details</summary>
+        <p>
+            This interdisciplinary project explores how the long history of coal mining in Taiyuan has shaped both environmental conditions and collective understandings of health and well-being. Drawing on visual materials and historical context, the research investigates how industrial landscapes are documented, remembered, and interpreted through visual culture.
+        </p>
+        <!-- <p>
+            By situating environmental health within visual and cultural narratives, the project moves beyond purely epidemiological or policy-based accounts. It considers how pollution, extraction, and urban transformation are not only material processes but also mediated experiences shaped by representation and perception.
+        </p>
+        <p>
+            The project brings together approaches from visual studies and public health to examine how environmental harm becomes visible—or remains obscured—within specific social and historical contexts.
+        </p> -->
+
+        </details>
+         <div class="content-note">
+         <em>Presented at Tufts Undergraduate Research Symposium 2022; featured in Tufts SMFA website News & Stories</em>
+         </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+</body>
+</html>

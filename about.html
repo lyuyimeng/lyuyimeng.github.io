@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YL_about</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: rgb(26, 26, 26);
+  }
+
+  /* ===== GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
+  }
+
+  /* ===== CELL ===== */
+  .cell {
+    border: 0px;
+  }
+
+  .content {
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+  .about {
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+  .content-nameEN {
+    font-family:'Inter', sans-serif;
+    padding: 10px;
+    font-size: 22px;
+    padding-bottom: 0;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1%;
+  }
+
+  .content-nameCN {
+    padding: 10px;
+    padding-top: 2px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .credit{
+    padding-left: 10px;
+    font-size: 12px;
+    opacity: 50%;
+  }
+
+  /* ===== LEFT STRUCTURE ===== */
+
+  .merge-a {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .merge-b {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+  }
+
+  /* navigation */
+  .merge-2a { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .merge-2b { grid-column: 3 / 4; grid-row: 1 / 2; }
+  .merge-2c { grid-column: 4 / 5; grid-row: 1 / 2; }
+  .merge-2d { grid-column: 5 / 6; grid-row: 1 / 2; }
+
+  .merge-bodytext{
+    grid-column: 3 / 7;
+    grid-row: 2 / 8;
+  }
+
+  .merge-pic{
+    grid-column: 2 / 3;
+    grid-row: 2 / 5;
+  }
+
+  .merge-pic img{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* ===== 关闭弹性滚动 ===== */
+  html, body {
+    overscroll-behavior: none;
+    overflow: hidden;
+  }
+
+  /* 👉 保证链接不变样式 */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  </style>
+</head>
+
+<body>
+
+<div class="grid">
+
+  <div class="merge-up"></div>
+
+  <!-- 左上名字（回首页） -->
+  <div class="cell merge-a">
+    <a href="index.html">
+      <div class="content-nameEN">lyu,<br>yimeng</div>
+      <div class="content-nameCN">吕奕蒙</div>
+    </a>
+  </div>
+
+  <div class="cell merge-b">
+    <div class="content-gray"></div>
+  </div>
+
+  <!-- navigation -->
+  <div class="cell merge-2a">
+    <a href="about.html"><div class="content">[About]</div></a>
+  </div>
+
+  <div class="cell merge-2b">
+    <a href="gallery.html"><div class="content">Gallery</div></a>
+  </div>
+
+  <div class="cell merge-2c">
+    <a href="research.html"><div class="content">Research</div></a>
+  </div>
+
+  <div class="cell merge-2d">
+    <a href="contact.html"><div class="content">Contact</div></a>
+  </div>
+
+  <!-- 头像 -->
+  <div class="merge-pic">
+    <img src="profile.png">
+    <div class="credit">
+      <p>Photo by Yona Liu</p>
+    </div>
+  </div>
+
+  <!-- about正文 -->
+  <div class="merge-bodytext">
+    <div class="about">
+      <p>
+      吕奕蒙 Lyu, Yimeng
+      </p>
+
+      <br>
+
+      <p>
+      Interdisplinary researcher, artist and designer.
+      <br>
+      Originally from Taiyuan, Shanxi; based in Baltimore. 
+      </p>
+
+      <br><br> 
+
+      <p>
+      BFA, School of the Museum of Fine Arts at Tufts University, 2024<br>
+      MHS, Johns Hopkins Bloomberg School of Public Health [In Progress]<br>
+      <br><br>
+      </p>
+
+      <p>
+      Yimeng was a Summer Scholar at Tufts, a research assistant at SUSTech University School of Public Health and Emergency Management, and recently presented original research at the HBS Symposium at Johns Hopkins.<br><br>
+
+      Yimeng's artwork has been shown at Tufts University Art Galleries, Boston Art Book Fair, Beijing ABC Open M, and ShanghART in Shanghai.<br><br>
+
+      Yimeng has worked in editorial and infographic design at Tufts Observer, Brigham and Women’s Hospital in Boston, PETITREE Gallery in Shenzhen, and as a freelancer.
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

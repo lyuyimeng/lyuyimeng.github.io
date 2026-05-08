@@ -1,0 +1,39 @@
+Here will be website design instructions
+
+
+
+--------Cover--------
+
+grid system:
+
+Divide page to 8*8 grids -> divs?
+
+backgroup color:white
+
+upper 4*8 grids color: light gray
+
+right6*8grids: fill with a gif(will be generated within code (I have all the still frames))
+
+
+Text:
+
+1. for [upper 4*8 grids color: light gray]
+
+place text on top left corner within each grid [padding = 5px]
+
+
+2. for leftbottom grid (1*2), they will visually work as one grid to place text in; 
+place text on top left corner within the (1,6) grid [padding = 5px] [padding = 5px]
+
+
+[text/font style]
+NAME-en: Inter, 22, line hight 20, semibold, default black, letter spacing 1%
+NAME-cn: Inter, 18, line hight 24, semibold, default black, letter spacing 1%
+
+subline: Inter, 16, line hight 16, Medium, gray, letter spacing 1%
+
+nav: Inter, 16, line hight 16, bold, all caps,  default black, letter spacing 1%
+
+note: Inter, 16, line hight 16, regular, gray, letter spacing 1%
+
+

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YL_gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar { display: none; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: rgb(26, 26, 26);
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: 100vh;
+}
+
+/* ===== TEXT ===== */
+.content {
+  padding: 10px;
+  font-size: 18px;
+}
+
+  .content-nameEN {
+    font-family:'Inter', sans-serif;
+    padding: 10px;
+    font-size: 22px;
+    padding-bottom: 0;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1%;
+  }
+
+.content-nameCN {
+    padding: 10px;
+    padding-top: 2px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* ===== NAV ===== */
+.merge-a { grid-column: 1 / 2; grid-row: 1 / 2; }
+
+.merge-2a { grid-column: 2 / 3; grid-row: 1 / 2; }
+.merge-2b { grid-column: 3 / 4; grid-row: 1 / 2; }
+.merge-2c { grid-column: 4 / 5; grid-row: 1 / 2; }
+.merge-2d { grid-column: 5 / 6; grid-row: 1 / 2; }
+
+/* ===== GALLERY ===== */
+.merge-list{
+  grid-column: 2 / 3;
+  grid-row: 2 / 9;
+  overflow-y: auto;
+}
+
+.merge-description{
+  opacity: 60%;
+  grid-column: 3 / 4;
+  grid-row: 2 / 9;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.merge-image{
+  grid-column: 4 / 9;
+  grid-row: 2 / 9;
+  overflow-y: auto;
+}
+
+.merge-statement{
+  grid-column: 7 / 9;
+  grid-row: 1 / 9;
+  overflow-y: auto;
+  background-color: rgb(239, 239, 239);
+  padding: 10px;
+  padding-right: 20px;
+}
+
+
+/* ===== NAV LIST STYLE ===== */
+.nav a {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav a.active::before {
+  content: "[";
+}
+
+.nav a.active::after {
+  content: "]";
+}
+
+/* ===== IMAGE ===== */
+.merge-image img {
+  width: 100%;
+  display: block;
+}
+
+/* ===== 禁止整体滚动 ===== */
+html, body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="grid">
+
+  <!-- 左上名字 -->
+  <div class="merge-a">
+    <a href="index.html" style="text-decoration:none;color:inherit;">
+      <div class="content-nameEN">lyu,<br>yimeng</div>
+      <div class="content-nameCN">吕奕蒙</div>
+    </a>
+  </div>
+
+  <!-- nav -->
+  <div class="merge-2a">
+    <div class="content">
+        <a href="about.html" style="text-decoration:none;color:inherit;">
+        About
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2b">
+    <div class="content">
+        <a href="gallery.html" style="text-decoration:none;color:inherit;">
+        [Gallery]
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2c">
+    <div class="content">
+        <a href="research.html" style="text-decoration:none;color:inherit;">
+        Research
+        </a>
+    </div>
+  </div>
+
+  <div class="merge-2d">
+    <div class="content">
+        <a href="contact.html" style="text-decoration:none;color:inherit;">
+        Contact
+        </a>
+    </div>
+  </div>
+ 
+  <!-- 左：项目列表 -->
+  <div class="merge-list">
+    <div class="nav">
+
+      <a href="#" data-project="a">The Collector</a>
+      <a href="#" data-project="b">Duplus</a>
+      <a href="#" data-project="c">Oct, Apr</a>
+      <a href="#" data-project="d">Duplus II</a>
+      <a href="#" data-project="e">The Letter</a>
+      <a href="#" data-project="f">Spur</a>
+      <a href="#" data-project="g">02115</a>
+      <a href="#" data-project="h">Selected Drawings</a>
+
+
+    </div>
+  </div>
+
+  <!-- 中：描述 -->
+  <div class="merge-description">
+    <div id="project-info"></div>
+  </div>
+
+  <!-- 右：图片 -->
+  <div class="merge-image" id="project-images"></div>
+  <!-- 右：artist-statment -->
+  <div class="merge-statement" id="artist-statment"></div>
+  
+
+</div>
+
+<script>
+
+
+// ===== 默认 Artist Statement =====
+document.getElementById("artist-statment").innerHTML = `
+  Artist Statement:
+
+    <br><br>
+
+My formal undergraduate education in studio art began remotely at the onset of the COVID-19 pandemic 
+and was completed in Boston during the pandemic.
+    <br><br>
+My practice is influenced by and reflects on the places I have lived, including their built environments 
+and histories, as well as their relationship to my home city, Taiyuan.
+    <br><br>
+I often work with found materials, including physical objects, digital media, and words—both my own 
+and collected from elsewhere. My visual method, while mixed-media, is grounded in drawing (as embodied 
+ways of thinking) and printmaking (as histories and technologies of image-making).
+    <br><br>
+Themes of physical and mental health tend to recur in my work, sometimes deliberately, sometimes intuitively. 
+When they do, I approach them with an awareness of sociological and historical perspectives on medicine, 
+and remain attentive to how they are engaged with and represented.
+    <br><br><br>
+Last updated: May 2026
+
+    `;
+
+
+
+/* 通用点击逻辑（比你原版更稳） */
+document.querySelectorAll('[data-project]').forEach(el => {
+  el.onclick = function(e) {
+    e.preventDefault();
+
+    const id = this.dataset.project;
+
+    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+    this.classList.add('active');
+    // work a
+    if (id === "a") {
+      document.getElementById("project-info").innerHTML = `
+      The Collector
+      <br><br>
+      <em>2023</em>
+      <br>
+      <br>
+      One roll of scotch tape and 16 borrowed objects
+      <br><br>
+      5 x 5 cm (16 pcs)
+
+      `;
+      document.getElementById("project-images").innerHTML = `
+        <img src="Media/TC/TC-1.jpg">
+        <br>
+        <img src="Media/TC/TC-2.jpg">
+        <br>
+        <img src="Media/TC/TC-3.jpg">
+        <br>
+        <img src="Media/TC/TC-4.jpg">
+        <br>
+        <img src="Media/TC/TC-5.jpg">
+      `;
+    }
+    // work b
+    if (id === "b") {
+      document.getElementById("project-info").innerHTML = `
+        Duplus
+        <br><br>
+        <em>2024</em>
+        <br><br>
+        a.
+        <br><br>
+        Clay, fabric, waxed thread, LED 
+        <br><br>
+        25 x 25 x 25 cm 
+        <br><br>
+        b.
+        <br><br>
+        Hardwood, fabric, waxed thread, LED 
+        <br><br>
+        25 x 25 x 25 cm
+
+      `;
+      // work name
+      document.getElementById("project-images").innerHTML = `
+        a.
+        <br>
+        <img src="Media/D/D-a1.jpg">
+        <br>
+        <img src="Media/D/D-a2.jpg">
+        <br>
+        <img src="Media/D/D-a5.jpg">
+        <br>
+        <img src="Media/D/D-a6.jpg">
+        <br>
+        <img src="Media/D/D-a7.jpg"> 
+        <br>
+        b.
+        <br>
+        <img src="Media/D/D-b1.jpg">
+        <br>
+        <img src="Media/D/D-b3.jpg">
+        <br>
+        <img src="Media/D/D-b4.jpg">
+        <br>
+        <img src="Media/D/D-b9.jpg">
+      `;
+    }
+    // work c
+    if (id === "c") {
+      document.getElementById("project-info").innerHTML = `
+        Oct, Apr
+        <br><br>
+        <em>2024</em>
+        <br><br>
+        Animated text, environmental projection
+        <br>
+        Original poem 
+        <br><br>
+        Edited video documentation
+        <br>
+        4'40"
+      `;
+      document.getElementById("project-images").innerHTML = `
+        <img src="Media/OA/OA-7.png">
+        Stills from video  
+        <br>
+        (full video available upon request)
+        <img src="Media/OA/OA-5.png">
+        <img src="Media/OA/OA-6.png">
+        <img src="Media/OA/OA-1.png">
+        <img src="Media/OA/OA-2.png">
+        <img src="Media/OA/OA-3.png">
+        <img src="Media/OA/OA-9.png">
+      `;
+    }
+    // work d
+    if (id === "d") {
+      document.getElementById("project-info").innerHTML = `
+        Duplus II
+        <br><br> 
+        <em>2026</em>
+        <br><br>  
+        a. 
+        <br><br>
+        Found media: Mukbang, Shanxi folk song Xiang Qinqin 想亲亲
+        <br>
+        Projection, performance
+        <br><br>
+        Humorous translation of lyrics available upon request
+        <br><br>
+        video documentation, 4'30"
+         <br><br>  
+        a. 
+        <br><br>
+        Found media: Mukbang, Shanxi folk song Taohua Hong Xinghua Bai 桃花红杏花白
+        <br>
+        Projection, performance
+        <br><br>
+        video documentation, 4'30"
+      `;
+      document.getElementById("project-images").innerHTML = `
+        a. 
+        <img src="Media/D2/D2-a3.png" style="width:75%; height:auto;">
+        Stills from videos  
+        <br>
+        (full videos available upon request)
+
+        <img src="Media/D2/D2-a2.png" style="width:75%; height:auto;">
+        <img src="Media/D2/D2-a1.png" style="width:75%; height:auto;">
+
+        <br>
+        b.
+        <img src="Media/D2/D2-b1.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b2.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b3.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b4.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b5.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b6.png" style="width:40%; height:auto;">
+        <img src="Media/D2/D2-b7.png" style="width:40%; height:auto;">
+
+      `;
+    }
+    // work e  [the letter]
+    if (id === "e") {
+      document.getElementById("project-info").innerHTML = `
+      The Letter
+      <br><br>
+      <em>2024</em>
+      <br>
+      <br>
+      Laser-cut acrylic plate
+      <br>
+      Oil-based ink on printmaking paper
+      <br>
+      Gel pen, performative writing
+      <br><br>
+      20 x 30 cm (14 pcs)
+
+      `;
+      document.getElementById("project-images").innerHTML = `
+        <img src="Media/TL/TL-1.jpg" style="width:50%; height:auto;">
+        <br>
+        <img src="Media/TL/TL-3.jpg">
+        <img src="Media/TL/TL-4.jpg">
+        <img src="Media/TL/TL-5.jpg">
+        <br>
+        <img src="Media/TL/TL-9.jpg" style="width:50%; height:auto;">
+
+      `;
+    }
+    // work f [spur]
+    if (id === "f") {
+      document.getElementById("project-info").innerHTML = `
+      Spur
+      <br><br>
+      <em>2025</em>
+      <br>
+      <br>
+      Artist Book
+
+      <br><br>
+
+      Digital illustration, collage with found images
+
+      <br>
+
+      Laser print on translucent paper and printmaking paper
+
+      <br>
+
+      Hand-bound with found tape
+
+      <br><br>
+
+      10 × 15 cm
+      `;
+      document.getElementById("project-images").innerHTML = `
+        <img src="Media/S/S-3.jpg">
+        <br>
+        <img src="Media/S/S-4.jpg">
+        <br>
+        <img src="Media/S/S-5.jpg">
+        <br>
+        <img src="Media/S/S-6.jpg">
+        <br>
+        <img src="Media/S/S-7.jpg">
+        <br>
+        <img src="Media/S/S-8.jpg">
+        <br>
+        <img src="Media/S/S-9.jpg">
+        <br>
+        <img src="Media/S/S-2.jpg" style="width:50%; height:auto;">
+        <br>
+      `;
+    }
+    // work g [02115]
+    if (id === "g") {
+      document.getElementById("project-info").innerHTML = `
+      02115
+      <br><br>
+      <em>2023</em>
+      <br>
+      <br>
+      Mail art
+      <br><br>
+      <br><br>
+
+      Rubbing with ink and kozo paper on Boston Harborwalk deck wood
+
+      <br>
+
+      CharlieTicket, photo collage
+
+      <br>
+
+      Original poem
+
+      <br><br>
+
+      23 × 16 cm
+
+      `;
+      document.getElementById("project-images").innerHTML = `
+        <br><br><br><br><br><br><br>
+        <img src="Media/0/0-1.jpg">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <img src="Media/0/0-2.jpg">
+        <img src="Media/0/0-3.jpg">
+        <br>
+        <img src="Media/0/0-4.jpg">
+        <br>
+        <img src="Media/0/0-5.jpg">
+        <img src="Media/0/0-6.jpg">
+        <br>
+
+      `;
+    }
+    // work h
+    if (id === "h") {
+      document.getElementById("project-info").innerHTML = `
+      Selected Drawings
+      <br><br>
+      <em>2022</em>
+      <br><br>
+      Charcoal, graphite, and ink on drawing paper
+      <br><br>
+      19 × 24 in
+      <br><br>
+      a. Postauricular I
+      <br>
+      b. Postauricular II
+      <br>
+      c. Live Drawing Session During COVID-19
+      <br>
+      d. Self-portrait
+
+
+
+
+      `;
+      document.getElementById("project-images").innerHTML = `
+        a.
+        <img src="Media/DW/DW-3.jpg" style="width:50%; height:auto;">
+        <br>
+        <img src="Media/DW/DW-3.jpg">
+        <br>
+        b.
+        <img src="Media/DW/DW-2.jpg" style="width:50%; height:auto;">
+        <br>
+        <img src="Media/DW/DW-2.jpg">
+        <br>
+        c.
+        <img src="Media/DW/DW-4.jpg" style="width:50%; height:auto;">
+        <br>
+        <img src="Media/DW/DW-4.jpg">
+        <br>
+        d.
+        <img src="Media/DW/DW-1.jpg" style="width:50%; height:auto;">
+        <br>
+        <img src="Media/DW/DW-1.jpg">
+        <br>
+        
+
+
+      `;
+    }
+  };
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YL-home</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: rgb(26, 26, 26);
+  }
+
+  /* ===== GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
+  }
+
+  /* ===== CELL ===== */
+  .cell {
+    border: 0px;
+  }
+
+  .content {
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+  .content-nameEN {
+    font-family:'Inter', sans-serif;
+    padding: 10px;
+    font-size: 22px;
+    padding-bottom: 0;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1%;
+  }
+
+  .content-nameCN {
+    padding: 10px;
+    padding-top: 2px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .content-note {
+    padding: 10px;
+    padding-right: 20%;
+    font-size: 10px;
+    line-height: 11px;
+    opacity: 50%;
+  }
+
+  /* ===== LEFT STRUCTURE ===== */
+
+  .merge-a {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .merge-b {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+  }
+
+  .merge-c {
+    grid-column: 1 / 2;
+    grid-row: 8 / 9;
+    overflow-y: auto;
+    overscroll-behavior: none;
+  }
+
+  /* 第二列 navigation */
+  .merge-2a { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .merge-2b { grid-column: 3 / 4; grid-row: 1 / 2; }
+  .merge-2c { grid-column: 4 / 5; grid-row: 1 / 2; }
+  .merge-2d { grid-column: 5 / 6; grid-row: 1 / 2; }
+
+  /* ===== RIGHT GIF AREA ===== */
+  .merge-3a {
+    grid-column: 2 / 9;
+    grid-row: 2 / 9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .merge-3a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  /* ===== 关闭弹性滚动 ===== */
+  html, body {
+    overscroll-behavior: none;
+    overflow: hidden;
+  }
+
+  /* 👉 保证链接不变样式 */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  </style>
+</head>
+
+<body>
+
+<div class="grid">
+
+  <div class="merge-up"></div>
+
+  <!-- 左上名字（回首页） -->
+  <div class="cell merge-a">
+    <a href="index.html">
+      <div class="content-nameEN">lyu,<br>yimeng</div>
+      <div class="content-nameCN">吕奕蒙</div>
+    </a>
+  </div>
+
+  <div class="cell merge-c">
+    <div class="content-note">
+      10,000 circles<br>
+      2023<br>
+      ink, hair, kozo paper, thread, inkjet on matte photo paper<br>
+      7-frame loop
+    </div>
+  </div>
+
+  <!-- navigation -->
+  <div class="cell merge-2a">
+    <a href="about.html"><div class="content">About</div></a>
+  </div>
+
+  <div class="cell merge-2b">
+    <a href="gallery.html"><div class="content">Gallery</div></a>
+  </div>
+
+  <div class="cell merge-2c">
+    <a href="research.html"><div class="content">Research</div></a>
+  </div>
+
+  <div class="cell merge-2d">
+    <a href="contact.html"><div class="content">Contact</div></a>
+  </div>
+
+  <!-- 右侧动图 -->
+  <div class="cell merge-3a">
+    <img id="gif-img" src="MediaBG/sweater gif frame 1.jpg">
+  </div>
+
+</div>
+
+<!-- ===== GIF 动画 ===== -->
+<script>
+  const frames = [
+    "MediaBG/sweater gif frame 1.jpg",
+    "MediaBG/sweater gif frame 2.jpg",
+    "MediaBG/sweater gif frame 3.jpg",
+    "MediaBG/sweater gif frame 4.jpg",
+    "MediaBG/sweater gif frame 5.jpg",
+    "MediaBG/sweater gif frame 6.jpg",
+    "MediaBG/sweater gif frame 7.jpg"
+  ];
+
+  let i = 0;
+  let direction = 1;
+
+  const img = document.getElementById("gif-img");
+
+  setInterval(() => {
+    if (i === frames.length - 1) direction = -1;
+    if (i === 0) direction = 1;
+    i += direction;
+    img.src = frames[i];
+  }, 800);
+</script>
+
+</body>
+</html>
